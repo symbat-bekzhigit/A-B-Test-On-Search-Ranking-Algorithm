@@ -12,6 +12,13 @@ An online travel agency is considering replacing its existing search ranking alg
 
 The objective is to determine whether the experiment provides sufficient evidence to support a full rollout.
 
+**Rollout Decision Criteria:**
+
+A full rollout is recommended only when both conditions are satisfied:
+
+1. **Primary metric:** The conversion rate improvement is statistically significant (p-value below 0.10) and the effect is positive.
+2. **Guardrail metric:** The difference in time to booking is either statistically insignificant (p-value above 0.10) or the effect is favorable (a decrease in booking time).
+
 ## Key Metrics
 
 - **Primary metric:** Session conversion rate — the proportion of sessions resulting in a booking.
