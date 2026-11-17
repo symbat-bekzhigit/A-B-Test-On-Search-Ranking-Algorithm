@@ -1,52 +1,54 @@
 # A/B Testing: Evaluating a New Search Ranking Algorithm
 
-## Executive Summary
+## Project Overview
 
-### Business Objective
+This project evaluates whether a new search ranking algorithm improves booking conversion rates without negatively affecting the time customers need to complete a booking.
 
-An online travel agency is considering introducing a new search ranking algorithm to improve booking conversion rates. The Product team wants to determine whether the new algorithm increases conversions without negatively affecting the booking experience.
+The analysis uses A/B testing methodology to compare a control group with a variant group and translate statistical findings into a product rollout recommendation.
 
-The objective of this analysis is to evaluate the experiment results and provide a data-driven recommendation on whether to fully roll out the new algorithm.
+## Business Problem
 
-### Approach
+An online travel agency is considering replacing its existing search ranking algorithm. The new algorithm should increase booking conversions while maintaining or improving the booking experience.
 
-I analyzed session-level booking data and user-level experiment assignments to compare the control group (existing algorithm) against the variant group (new algorithm).
+The objective is to determine whether the experiment provides sufficient evidence to support a full rollout.
 
-The analysis included:
+## Key Metrics
 
-- **Sample allocation check:** A chi-square goodness-of-fit test to assess whether session counts were consistent with the expected 50/50 split.
-- **Primary metric:** A two-proportion Z-test to compare session conversion rates.
-- **Guardrail metric:** An independent two-sample t-test to compare average time to booking.
-- **Effect size analysis:** Relative changes in conversion rate and average time to booking.
-- **Decision framework:** Evaluation against predefined rollout criteria using a 90% confidence level (α = 0.10).
+- **Primary metric:** Session conversion rate — the proportion of sessions resulting in a booking.
+- **Guardrail metric:** Time to booking — the average time between session start and booking.
+- **Experiment sanity check:** Sample Ratio Mismatch (SRM) — whether the observed group allocation is consistent with the intended 50/50 split.
 
-### Key Findings
+## Methods & Tools
 
-| Metric | Control | Variant | Result |
-|---|---:|---:|---|
-| Session conversion rate | 15.92% | 18.19% | +14.22% relative change |
-| Average time to booking | 15.01 min | 14.89 min | -0.79% relative change |
+**Statistical methods**
+- Chi-square goodness-of-fit test for SRM.
+- Two-proportion Z-test for conversion rates.
+- Two-sample t-test for time to booking.
+- Relative effect size calculations.
+- Hypothesis testing at a 10% significance level.
 
-**Primary metric — Conversion**
+**Tools**
+- Python
+- Pandas
+- SciPy
+- Pingouin
+- Statsmodels
+- Matplotlib
 
-The variant achieved a 14.22% relative increase in session conversion rate. The difference was statistically significant (p = 0.0002), providing evidence that the new algorithm improved conversion performance.
+## Key Results
 
-**Guardrail metric — Time to booking**
+- Conversion rate increased from 15.92% to 18.19%.
+- Relative conversion improvement: 14.22%.
+- Conversion difference was statistically significant (p = 0.0002).
+- Average time to booking decreased by 0.79%, with no statistically significant difference (p = 0.5365).
 
-Average time to booking decreased by 0.79% in the variant group. However, the difference was not statistically significant (p = 0.5365). There is no statistically significant evidence that the new algorithm increased the time required to book.
+## Recommendation
 
-**Sample allocation check**
-
-The session-level allocation check returned a p-value of 0.8524. We fail to reject the null hypothesis of an equal 50/50 session allocation.
-
-### Rollout Decision Criteria
-
-A full rollout is recommended only when both conditions are satisfied:
-
-1. **Primary metric:** The conversion rate improvement is statistically significant (p-value below 0.10) and the effect is positive.
-2. **Guardrail metric:** The difference in time to booking is either statistically insignificant (p-value above 0.10) or the effect is favorable (a decrease in booking time).
+The experiment meets the predefined full-rollout criteria based on the analyzed session-level metrics.
 
 
-### Recommendation
+## Limitations
 
-Proceed with a full rollout of the new search ranking algorithm, based on the results and decision criteria used in this analysis.
+- Multiple sessions from the same user may violate the independence assumption of the session-level tests.
+- The analysis population is limited to sessions successfully matched to experiment users.
+- The guardrail analysis includes sessions with a booking because time to booking is unavailable for non-converting sessions.
