@@ -56,6 +56,6 @@ The experiment meets the predefined full-rollout criteria based on the analyzed 
 
 ## Limitations
 
-- Multiple sessions from the same user may violate the independence assumption of the session-level tests.
-- The analysis population is limited to sessions successfully matched to experiment users.
-- The guardrail analysis includes sessions with a booking because time to booking is unavailable for non-converting sessions.
+- The session-level statistical tests may not account for potential correlation between sessions from the same user.
+- The allocation check compares session counts between groups, while the experiment assignment is assumed to be performed at the user level.
+These limitations should be considered when interpreting the results and planning future experiments.
