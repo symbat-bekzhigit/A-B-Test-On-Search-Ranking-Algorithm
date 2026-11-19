@@ -45,9 +45,9 @@ A full rollout is recommended only when both conditions are satisfied:
 ## Key Results
 
 - Conversion rate increased from 15.92% to 18.19%.
-- Relative conversion improvement: 14.22%.
+- Relative conversion improvement: 14.26%.
 - Conversion difference was statistically significant (p = 0.0002).
-- Average time to booking decreased by 0.79%, with no statistically significant difference (p = 0.5365).
+- Average time to booking decreased by 0.8%, with no statistically significant difference (p = 0.5365).
 
 ## Recommendation
 
