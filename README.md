@@ -1,4 +1,4 @@
-# A/B Testing: Evaluating a New Search Ranking Algorithm
+# A/B Testing: Evaluating a Search Ranking Algorithm
 
 ## Project Overview
 
